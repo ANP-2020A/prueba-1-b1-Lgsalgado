@@ -17,14 +17,14 @@ class CustomerController extends Controller
     }
     public function store(Request $request)
     {
-        $article = Customer::create($request->all());
-        return response()->json($article, 201);
+        $customer = Customer::create($request->all());
+        return response()->json($customer, 201);
     }
     public function update(Request $request, Customer $article)
     {
 
-        $article->update($request->all());
-        return response()->json($article, 200);
+        $customer->update($request->all());
+        return response()->json($customer, 200);
     }
     public function delete(Request $request, Customer $article)
     {

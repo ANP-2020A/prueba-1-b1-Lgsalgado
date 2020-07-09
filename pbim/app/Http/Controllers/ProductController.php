@@ -20,15 +20,16 @@ class ProductController extends Controller
         $product = Product::create($request->all());
         return response()->json($product, 201);
     }
-    public function update(Request $request, Product $article)
+    public function update(Request $request, Product $product)
     {
 
-        $article->update($request->all());
-        return response()->json($article, 200);
+        $product->update($request->all());
+        return response()->json($product, 200);
     }
-    public function delete(Request $request, Product$article)
+    public function delete(Request $request, Product$product)
     {
-        $article->delete();
+        $product->status='deleted';
+        $product->save();
         return response()->json(null, 204);
     }
 }
