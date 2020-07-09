@@ -14,19 +14,14 @@ class CreateCustomersTable extends Migration
     public function up()
     {
         Schema::create('customers', function (Blueprint $table) {
-            $table->bigInteger('id', 20);
-            $table->string('name');
-            $table->string('code',80);
-            $table->enum('status', ['active', 'deleted']);
+            $table->unsignedBigInteger('id', 20);
+            $table->string('name',255);
+            $table->string('lastname',255);
+            $table->string('document',80);
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('customers');
